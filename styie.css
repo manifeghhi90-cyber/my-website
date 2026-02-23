@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 30px 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.box {
+  width: 260px;
+  background: #1f1f1f;
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.box:nth-child(1) { animation-delay: 0.2s; }
+.box:nth-child(2) { animation-delay: 0.4s; }
+
+.box img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.box h3 {
+  margin: 15px 0 5px;
+  transition: letter-spacing 0.3s ease;
+}
+
+.box p {
+  opacity: 0.8;
+}
+
+/* هاور خفن */
+.box:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+}
+
+.box:hover h3 {
+  letter-spacing: 1px;
+}
+
+/* انیمیشن ورود */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+  animation: zoomIn 0.3s ease;
+}
+
+#lightbox .close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+
+/* انیمیشن زوم */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+.box {
+  width: 260px;
+  background: lch(100% 0.01 296.81); /* شفافیت */
+  backdrop-filter: blur(10px); /* تار شدن پشت باکس */
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  border: 1px solid rgba(255,255,255,0.2); /* حاشیه شیشه‌ای */
+}
+
+.desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+  transition: all 0.5s ease;
+}
+
+
+.desc.show {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 10px 25px rgba(0,114,255,0.5);
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  transform: scale(1.08);
+}
